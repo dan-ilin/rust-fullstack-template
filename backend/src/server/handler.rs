@@ -16,6 +16,7 @@ impl Handler {
     }
 
     async fn example_handler(arg: String) -> Result<impl Reply, Rejection> {
+        println!("{}", arg);
         let example_response = Example {
             string: arg,
             int: 12345,
