@@ -37,8 +37,8 @@ mod tests {
             config,
             super::Config {
                 server: super::Server {
-                    address: "localhost".to_string(),
-                    port: Some(8080),
+                    address: "127.0.0.1".to_string(),
+                    port: Some(80),
                 }
             }
         );
