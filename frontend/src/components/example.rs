@@ -26,7 +26,6 @@ impl Component for ExampleComponent {
     fn update(&mut self, ctx: &Context<Self>, msg: Self::Message) -> bool {
         match msg {
             ExampleMsg::Input(input) => {
-                println!("{}", input);
                 self.input = input;
                 false
             }
