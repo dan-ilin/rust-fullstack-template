@@ -1,6 +1,5 @@
 lazy_static::lazy_static! {
     static ref SETUP: bool = {
-        println!("Starting integration tests");
         setup();
         true
     };
