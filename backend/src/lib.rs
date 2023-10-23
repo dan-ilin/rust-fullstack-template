@@ -10,8 +10,12 @@ mod server;
 
 #[tokio::main]
 async fn main() {
+    start().await
+}
+
+pub async fn start() {
     pretty_env_logger::init();
-    let config = read_config("backend/config.toml");
+    let config = read_config("config.toml");
     let server = Server::new(config.server, Handler {});
 
     server.start().await

@@ -18,6 +18,6 @@ impl Server {
         let log = warp::log("api");
         let routes = self.handler.build_routes().with(log);
 
-        serve(routes).run(address).await
+        serve(routes).bind(address).await
     }
 }
