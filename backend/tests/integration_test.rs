@@ -13,6 +13,7 @@ async fn it_adds_two() {
         .json::<Example>()
         .await
         .unwrap();
+
     assert_eq!(response, Example {
         string: "world".to_string(),
         int: 12345,
