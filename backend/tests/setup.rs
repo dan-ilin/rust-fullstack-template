@@ -7,7 +7,7 @@ lazy_static::lazy_static! {
 }
 
 async fn start_backend() {
-    backend::start().await
+    backend::start("config.toml").await
 }
 
 

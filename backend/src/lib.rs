@@ -8,14 +8,10 @@ use crate::server::server::Server;
 mod config;
 mod server;
 
-#[tokio::main]
-async fn main() {
-    start().await
-}
 
-pub async fn start() {
+pub async fn start(config_file_path: &str) {
     pretty_env_logger::init();
-    let config = read_config("config.toml");
+    let config = read_config(config_file_path);
     let server = Server::new(config.server, Handler {});
 
     server.start().await
