@@ -17,4 +17,4 @@ jobs:
       - name: Build
         run: cargo build
       - name: Run tests
-        run: cargo test
+        run: RUST_LOG=info cargo test
