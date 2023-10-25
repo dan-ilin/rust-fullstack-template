@@ -6,6 +6,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  RUST_LOG: debug
 
 jobs:
   build:
@@ -17,4 +18,4 @@ jobs:
       - name: Build
         run: cargo build
       - name: Run tests
-        run: RUST_LOG=debug cargo test
+        run: cargo test
