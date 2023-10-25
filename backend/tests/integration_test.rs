@@ -7,7 +7,7 @@ mod setup;
 async fn hello_world_route() {
     setup::setup();
     let response = reqwest::Client::new()
-        .get(format!("http://127.0.0.1:80/api/v1/hello/{}", "world"))
+        .get(format!("http://127.0.0.1:9000/api/v1/hello/{}", "world"))
         .send()
         .await
         .unwrap()
@@ -26,7 +26,7 @@ async fn hello_world_route() {
 async fn not_found() {
     setup::setup();
     let response = reqwest::Client::new()
-        .get("http://127.0.0.1:80/api/v1/nonsense")
+        .get("http://127.0.0.1:9000/api/v1/nonsense")
         .send()
         .await
         .unwrap();
