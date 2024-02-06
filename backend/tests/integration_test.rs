@@ -7,7 +7,7 @@ mod setup;
 async fn hello_world_route() {
     setup::setup();
     let response = reqwest::Client::new()
-        .get(format!("http://localhost:8000/api/v1/hello/{}", "world"))
+        .get("http://localhost:8000/api/v1")
         .send()
         .await
         .unwrap()
@@ -18,9 +18,9 @@ async fn hello_world_route() {
     assert_eq!(
         response,
         Example {
-            string: "world".to_string(),
-            int: 12345,
-            float: 67.890,
+            string: "hello world".to_string(),
+            int: 1234567890,
+            float: 12345.67890,
         }
     );
 }
