@@ -20,7 +20,10 @@ impl Component for ExampleComponent {
     type Properties = ();
 
     fn create(_ctx: &Context<Self>) -> Self {
-        Self { example: None, input: String::new() }
+        Self {
+            example: None,
+            input: String::new(),
+        }
     }
 
     fn update(&mut self, ctx: &Context<Self>, msg: Self::Message) -> bool {
@@ -66,16 +69,16 @@ impl Component for ExampleComponent {
         });
 
         html! {
-                <div>
-                    <p>{match &self.example {
-                        None => "".to_string(),
-                        Some(value) => value.string.clone()
-                    }}</p>
-                    <form {onsubmit}>
-                        <input type="text" {oninput} />
-                        <input type="submit" />
-                    </form>
-                </div>
-            }
+            <div>
+                <p>{match &self.example {
+                    None => "".to_string(),
+                    Some(value) => value.string.clone()
+                }}</p>
+                <form {onsubmit}>
+                    <input type="text" {oninput} />
+                    <input type="submit" />
+                </form>
+            </div>
+        }
     }
 }
