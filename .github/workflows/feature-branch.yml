@@ -18,6 +18,7 @@ jobs:
         with:
           path: |
             ~/.cargo
+            target
           key: ${{ runner.os }}-rust-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: |
             ${{ runner.os }}-rust-
