@@ -1,26 +1,18 @@
-use reqwest::StatusCode;
-use warp::{Filter, path, Rejection, Reply, reply};
-
+use axum::{routing::get, Json, Router};
 use common::Example;
 
 pub struct Handler {}
 
 impl Handler {
-    pub fn build_routes(self) -> impl Filter<Extract=(impl Reply, ), Error=Rejection> + Clone {
-        let prefix = path!("api" / "v1" / ..);
-        prefix.and(Self::example_route())
+    pub fn build_router(self) -> Router {
+        Router::new().route("/api/v1", get(root))
     }
+}
 
-    fn example_route() -> impl Filter<Extract=(impl Reply, ), Error=Rejection> + Clone {
-        warp::path!("hello" / String).and_then(Self::example_handler)
-    }
-
-    async fn example_handler(arg: String) -> Result<impl Reply, Rejection> {
-        let example_response = Example {
-            string: arg,
-            int: 12345,
-            float: 67.890,
-        };
-        Ok(reply::with_status(reply::json(&example_response), StatusCode::OK))
-    }
+async fn root() -> Json<Example> {
+    Json(Example {
+        string: "hello world".to_string(),
+        int: 1234567890,
+        float: 12345.67890,
+    })
 }
