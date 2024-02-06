@@ -1,7 +1,7 @@
 use crate::config::config;
 use crate::server::handler::Handler;
 
-use warp::{serve, Filter, log};
+use warp::{serve, Filter};
 
 pub struct Server {
     config: config::Server,
