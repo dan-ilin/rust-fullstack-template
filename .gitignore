@@ -15,3 +15,6 @@ Cargo.lock
 
 # App secrets
 backend/secrets.toml
+
+# Compiled frontend
+frontend/dist/
