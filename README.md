@@ -33,7 +33,7 @@ To start the backend:
 To compile and serve the frontend locally:
 ```
 cd frontend
-trunk serve --proxy-backend=http://127.0.0.1:80/api/
+trunk serve --proxy-backend=http://127.0.0.1:8000/api/
 ```
 
 Proxying backend requests is required to avoid CORS issues when running the application locally.
