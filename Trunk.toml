@@ -1,0 +1,6 @@
+[build]
+target  = "frontend/index.html"
+
+[[proxy]]
+rewrite = "/api/"
+backend = "http://127.0.0.1:8000/api/"
